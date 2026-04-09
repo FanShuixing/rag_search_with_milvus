@@ -91,9 +91,8 @@ pip install -r requirements.txt
 
 ```bash
 export OPENAI_API_KEY="your_api_key"
+export OPENAI_BASE_URL="URL"
 ```
-
-
 
 ---
 
@@ -125,7 +124,7 @@ http://localhost:8501
 ## 1. 拉取镜像
 
 ```bash
-docker pull 你的用户名/myagent:v1.0
+docker pull pollypan/my_rag_with_milvus:v1.0
 ```
 
 ---
@@ -138,7 +137,7 @@ echo "OPENAI_BASE_URL=URL" > .env
 ## 3. 运行容器
 
 ```bash
-docker run -p 8501:8501 rag-chat-app
+docker compose up -d
 ```
 
 ---
