@@ -19,8 +19,6 @@ RAG主流程:
 - 基础 RAG
 - Query Rewrite：把用户当前不完整的问题【它怎么存储数据】，结合聊天历史改写成【milvus如何存储数据】，然后再送给milvus做检索
 - Rerank
-- Hybrid Search:将向量搜索和关键词搜索相结合
-- Agent/workflow
 """
 
 
