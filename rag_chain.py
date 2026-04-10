@@ -4,6 +4,7 @@ from langchain_openai import ChatOpenAI
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_core.chat_history import InMemoryChatMessageHistory
 from sentence_transformers import CrossEncoder
+from langchain_core.prompts import MessagesPlaceholder
 
 """
 RAG主流程:
@@ -30,7 +31,7 @@ class RAGChain:
         self.prompt_template = ChatPromptTemplate.from_messages(
             [
                 ("system", "你是一个专业问答小助手，请根据参考资料回答问题"),
-                ("placeholder", "{chat_history}"),
+                MessagesPlaceholder(variable_name="chat_history"),
                 ("human", "参考资料:{context}\n用户问题:{query}"),
             ]
         )
