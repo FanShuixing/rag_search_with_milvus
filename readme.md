@@ -1,7 +1,7 @@
 # 🤖 Milvus RAG Demo
 
 一个基于 **Streamlit + LangChain + Milvus + OpenAI** 构建的智能问答系统 Demo，支持多轮对话记忆、Query Rewrite、Rerank，以及参考资料展示。
-
+![alt text](image.png)
 
 ---
 
