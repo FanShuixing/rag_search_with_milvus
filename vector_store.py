@@ -9,9 +9,13 @@ Milvus操作
 
 class VectorStore:
     def __init__(self) -> None:
+        # 如果使用docker启动rag，则需要使用host.docker.internal,如果本地启动rag，则使用http://localhost:19530
         self.client = MilvusClient(
             uri="http://localhost:19530", db_name="default", timeout=10
         )
+        # self.client = MilvusClient(
+        #     uri="http://host.docker.internal:19530", db_name="default", timeout=10
+        # )
         self.collection_name = "my_rag"
         self.vector = Embedding()
 
