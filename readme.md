@@ -154,11 +154,13 @@ http://localhost:8501
 
 如果 Milvus 也是 Docker 启动：
 
-* 不要直接使用 `localhost`
-* Docker 容器中建议连接：
+* 不要在vector_store.py中MilvusClient的地址直接使用 `localhost`
+* 建议连接：
 
 ```python
-host="host.docker.internal"
+        self.client = MilvusClient(
+            uri="http://host.docker.internal:19530", db_name="default", timeout=10
+        )
 ```
 
 或使用 docker-compose 服务名。
@@ -175,54 +177,3 @@ host="host.docker.internal"
 * PyTorch
 * NumPy
 * Docker
-
----
-
-# 🔧 已实现优化能力说明
-
-## Query Rewrite
-
-根据历史对话，将用户问题改写成更适合检索的完整问题。
-
-例如：
-
-```text
-原问题：它的优点是什么？
-改写后：Transformer 的优点是什么？
-```
-
----
-
-## Rerank
-
-对检索结果重新排序，把最相关内容优先提供给 LLM。
-
----
-
-## Memory
-
-支持多轮连续对话，保留上下文。
-
----
-
-# 📌 后续可扩展方向
-
-* Hybrid Search
-* Agent Tool Calling
-* 多用户 Session 管理
-* 对话总结 Memory
-* Web Search 集成
-* 文档上传解析
-
----
-
-# 🙌 致谢
-
-感谢以下开源项目：
-
-* LangChain
-* Streamlit
-* Milvus
-* OpenAI
-* Sentence Transformers
-
