@@ -127,7 +127,8 @@ class RAGChain:
         """
         对检索结果重新排序
         """
-
+        if len(context_list) == 0:
+            return context_list
         pairs = [[query, doc] for doc in context_list]
         scores = self.reranker.predict(pairs)
 
